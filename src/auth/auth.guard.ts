@@ -7,6 +7,8 @@ export class GoogleAuthGuard extends AuthGuard('google') {
     //google.strategy.ts의 valdidate수행
     const result = (await super.canActivate(context)) as boolean;
     const request = context.switchToHttp().getRequest();
+    //sessionSerializer를 수행하여 세션에 request.user정보 저장
+    await super.logIn(request);
     return result;
   }
 }
