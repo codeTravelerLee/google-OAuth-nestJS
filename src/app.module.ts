@@ -5,6 +5,7 @@ import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from './user/user.entity';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'user.sqlite',
       synchronize: true,
       logging: true,
-      entities: [],
+      entities: [User],
     }),
     ConfigModule.forRoot({ isGlobal: true }),
     UserModule,
