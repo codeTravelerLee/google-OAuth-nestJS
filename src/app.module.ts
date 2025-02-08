@@ -15,7 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       logging: true,
       entities: [],
     }),
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
     UserModule,
     AuthModule,
   ],
